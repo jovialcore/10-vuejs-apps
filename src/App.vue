@@ -1,9 +1,12 @@
 <template> 
 <Appheader  />  
+
 <div class="w-full flex">
 <!-- <Roomates  /> -->
 
-<Calender />
+   <router-view> </router-view>
+
+
 </div>
 
 <!-- <input  :[attributes]="add"> <button :value="add"> add </button> -->
@@ -24,13 +27,15 @@ moustache syntax in vue js is usally referred to as text-interpolaton
  
 <script>
 import Appheader from "./components/Appheader"
-import Calender from "./components/Calender"
+
+// import router from "./route/router"
+
 
 // import Roomates from './components/Roomates';
 
  export default {
 //computed properties maintain their state. so thier values are usually cached.. unlike mthods..the change each time the template is rendered
-components : {Appheader, Calender}
+components : {Appheader}
 };
 
 </script>

@@ -1,0 +1,72 @@
+##My tutorials
+
+
+#3vuejs concepts I have learnt so format
+
+##v-bindsyarn s  ##data, #methods, ##computed properties, ##mixins, ##lifecycle hooks,
+
+How to setup vuejs for sublime text----
+
+Permit me to go straight to the point. I personally don't like lengthy Intros. 
+Yo... So..
+
+How to set up vue dev tools for vuejs 3 
+1, as of the time of writing this post, due to compatibility issues, downloading vuejs dev tools directly from firefox extension market place will not work outrighlty. 
+Upon activated, you may be having pop up like "vuejs not detected"
+
+To solve this, 
+you will have to download vuejs dev tools beta version via this link and its highly recommended. See this "https://github.com/vuejs/vue-devtools/issues/1279" Please accept all the permissions requirements that pops up while you are trying to donwload the extension on firefox.
+
+2. Once its activated, disbale the vuejs (not beta version) if you have already installed it.
+
+3. restart your firefox browser and thats it. You are good to go.
+
+
+## How to set up vuejs router 4 in vuejs 3 ##
+
+## what are computed properties in vuejs ##
+
+  //computed properties lets vuejs first set all the values, then acts on the set values..LIke it allows the app to SET all values then acts on the SETTED values.
+        //so computed properties is simply having the data SETTED and then you can represent the values as DATA property inyour text interpolation.. So you compute stuff and treat it as a propery
+//you can use computed properties as data but in method format 
+//method is usually when you want to do stuff based on events...Thats what methods kind of looks like though
+
+
+
+virtual dom is the copy of the html contents into the memory o vuejsVdom is in memory and very light
+
+
+  //life cycle hooks..vuejs lifecycle hooks enables you to have full control of the virtual dom...You can manipulate the different virtual dom changes before app is created, beofore mounting, unmounting, etc
+ 
+//before unmounted : changing the component means changing the dom and thereby means unmounting
+
+
+ <template>
+
+ 
+ <div class="flex flex-wrap w-full">
+
+<div  v-if="currentCarousel == 0" class="absolute w-full bg-green-600" style="height:350px"> </div>
+
+<div v-if="currentCarousel == 1"  class="absolute  w-full bg-yellow-300" style="height:350px"> </div>
+
+<div v-if="currentCarousel == 2"  class="absolute  w-full bg-yellow-700" style="height:350px"> </div>
+
+   </div>
+ </template>
+ 
+ <script>
+ export default {
+
+     data(){
+         return {
+             currentCarousel : 2,
+         }
+     }
+ 
+ }
+ </script>
+ 
+ <style>
+ 
+ </style>

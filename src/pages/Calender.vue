@@ -3,9 +3,9 @@
 <div class="m-auto"> 
     
     <h1 class="text-2xl my-2 text-center"> Vue Calender </h1> 
-    {{startdate()}}
+    
 <section class="mx-2">
-    <h2 class="text-center font-bold"> {{  currentMonthName }}  {{ currentYear }} {{ currentMonth + 1 }}</h2>
+    <h2 class="text-center font-bold"> {{  currentMonthName }}  {{ currentYear }}</h2>
 </section>
     <section class="flex my-2">
             <p class=" text-center" style="width:14.28%" v-for="day in days  " :key="day"> {{ day }} </p>
@@ -14,9 +14,15 @@
      <section class="flex flex-wrap">
            <p class="" style="width:14.25%;" v-for="num in startdate()" :key="num"> </p>
 
-         <p class="text-center" :class=" num == currentDate ? 'text-blue-800' : ''" style="width:14.28%;" v-for="num in daysInMonth()" :key="num" > {{ num }} 
+         <p 
+         
+         class="text-center" 
+         style="width:14.28%;"  v-for="num in daysInMonth()" :key="num"
+        
+        :class="currentDateClass(num)" 
 
-
+          > 
+    {{ num }} 
          </p>
      </section>
      <section class="flex mt-2 justify-between">
@@ -31,7 +37,7 @@ export default {
 
     data() {
         return {
-            currentDate : new Date().getUTCDate,
+            currentDate : new Date().getUTCDate(),
             currentMonth : new Date().getMonth(),
             currentYear : new Date().getFullYear(),
             days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']
@@ -52,11 +58,10 @@ export default {
                     //reset the month values
                 this.currentMonth = 0;
                 this.currentYear++;       
-            }
+            }   
              else {
                 this.currentMonth++; 
-            }
-        
+            }   
         },
 
          prev() {
@@ -67,11 +72,19 @@ export default {
             }
              else {
                this.currentMonth--;
-            }
-        
-           
+            }   
         },
-     
+        //compare the device date from date in calender
+    currentDateClass (num) {
+
+    const deviceDate = new Date().toDateString();
+
+    const  calendarDate = new Date(this.currentYear, this.currentMonth, num).toDateString();
+
+    console.log(deviceDate, calendarDate);
+
+            return calendarDate == deviceDate ? 'text-yellow-600 border bg-black w-2'  : " ";
+    }    
     },
 
     computed: {
@@ -80,7 +93,7 @@ export default {
                 return new Date(this.currentYear, this.currentMonth).toLocaleString('default', {month: "long"})
             },
           
-        }
+        } 
 
 }
 </script>

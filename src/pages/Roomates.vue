@@ -9,7 +9,7 @@
 <div> 
       {{ members.name}}  
 </div>  
- <button @click="remove(index)"> x</button>
+ <button @click="remove(index)"> x </button>
 
   </li>
 </ul> 
