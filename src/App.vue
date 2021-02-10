@@ -1,5 +1,6 @@
 <template> 
-<Appheader  />  
+<!-- represent what you want it to do? from the oter component where you defined it-->
+<Appheader  v-on:open-login-modal="isLoginOpen = true " />  
 
 <div class="w-full flex">
 <!-- <Roomates  /> -->
@@ -8,6 +9,9 @@
 
 
 </div>
+<!-- this  compnent will show only when the condition set for this component is true...so if its not, it negates to false... -->
+
+<loginModal v-if="isLoginOpen" v-on:close-login="isLoginOpen = false" />
 
 <!-- <input  :[attributes]="add"> <button :value="add"> add </button> -->
 
@@ -28,14 +32,22 @@ moustache syntax in vue js is usally referred to as text-interpolaton
 <script>
 import Appheader from "./components/Appheader"
 
+import loginModal from "./components/loginModal"
+
+
 // import router from "./route/router"
 
 
 // import Roomates from './components/Roomates';
 
  export default {
+        data() {
+        return {
+            isLoginOpen :false,
+        }
+    },
 //computed properties maintain their state. so thier values are usually cached.. unlike mthods..the change each time the template is rendered
-components : {Appheader}
+components : {Appheader, loginModal}
 };
 
 </script>

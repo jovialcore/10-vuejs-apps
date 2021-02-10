@@ -40,6 +40,7 @@ virtual dom is the copy of the html contents into the memory o vuejsVdom is in m
  
 //before unmounted : changing the component means changing the dom and thereby means unmounting
 
+// i learnt how to use event instances like (emits)to work across mulitple components. You basically use them to create custom event handlers as much as you want... 
 
  <template>
 
