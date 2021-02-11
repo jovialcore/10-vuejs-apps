@@ -22,7 +22,7 @@ it is primarily used to bind anythihng to the DOM, so...
 <!-- <input  :value="add"> <button>Add</button> -->
 <!-- v-model -->
 <form class=" mt-10" @submit.prevent="addMembers">
-<input class="border pl-2 py-1 rounded border-green-800"  v-model="nameInput" placeholder="Type a room mate name"> 
+<input class="border pl-2 py-1 rounded border-green-800"  v-model="nameInput" placeholder="Type a room mate name" ref="roomMateRef"> 
 <!-- v:on:click or @click -->  
 <button class="border rounded px-5 py-1 text-white  bg-green-600" type="submit">Add Name</button> 
 <br>
@@ -34,6 +34,12 @@ it is primarily used to bind anythihng to the DOM, so...
 
 <script>
 export default {
+
+  mounted() {
+
+    console.log(this.$refs.roomMateRef);
+
+  },
      computed: {
       noOfRoomMates() {
         return this.roomMates.length;

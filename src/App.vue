@@ -30,10 +30,12 @@ moustache syntax in vue js is usally referred to as text-interpolaton
 
  
 <script>
+
 import Appheader from "./components/Appheader"
 
 import loginModal from "./components/loginModal"
 
+import firebase from "./utilities/firebase";
 
 // import router from "./route/router"
 
@@ -42,9 +44,24 @@ import loginModal from "./components/loginModal"
 
  export default {
         data() {
-        return {
+         return {
             isLoginOpen :false,
+            // this is simply a state we created
+            isSignedIn: false,
+            authUser: {}
         }
+    },
+
+    mounted() {
+     firebase.auth().onAuthStateChanged((user) => {
+                    if(user) {
+                        this.isSignedIn = true
+                        this.authUser = user
+                    } else {
+                         this.isSignedIn = false
+                         this.authUser = {}
+                         }
+                })
     },
 //computed properties maintain their state. so thier values are usually cached.. unlike mthods..the change each time the template is rendered
 components : {Appheader, loginModal}

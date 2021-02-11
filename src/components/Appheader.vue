@@ -7,10 +7,13 @@
 
 <button class="mx-2" @click="$emit('open-login-modal')">Login </button>
 
+
+<button class="mx-2" @click="logout">Logout </button>
 </nav>
 </template>
  
 <script>
+import firebase from "../utilities/firebase"
 export default {
   data() {
       return {
@@ -20,11 +23,20 @@ export default {
 
               {title:'calender',to:'/calender'},
 
-                 {title:'markdown',to:'/markdown'},
+              {title:'markdown',to:'/markdown'},
 
-                 {title: 'carousel', to: '/carousel'}
+              {title: 'carousel', to: '/carousel'}
           ]
       }
+  },
+  methods:{
+      logout() {
+          firebase
+          .auth()
+          .signOut().
+          then(res => {console.log( res)})
+          .catch(e => { console.log(e)});
+      },
   }
 }
 </script>
