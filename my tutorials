@@ -35,12 +35,16 @@ you will have to download vuejs dev tools beta version via this link and its hig
 
 virtual dom is the copy of the html contents into the memory o vuejsVdom is in memory and very light
 
-
+ 
   //life cycle hooks..vuejs lifecycle hooks enables you to have full control of the virtual dom...You can manipulate the different virtual dom changes before app is created, beofore mounting, unmounting, etc
  
 //before unmounted : changing the component means changing the dom and thereby means unmounting
 
 // i learnt how to use event instances like (emits)to work across mulitple components. You basically use them to create custom event handlers as much as you want... 
+
+
+
+//how to pass values and variables/data in one component to another component
 
  <template>
 

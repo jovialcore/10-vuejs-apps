@@ -37,7 +37,7 @@ export default {
 
   mounted() {
 
-    console.log(this.$refs.roomMateRef);
+    this.$refs.roomMateRef.focus();
 
   },
      computed: {

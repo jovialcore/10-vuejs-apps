@@ -5,16 +5,18 @@
 
 <router-link v-for="item in list" :key="item.to" class="mx-2" :to="item.to"  > {{ item.title }} </router-link>
 
-<button class="mx-2" @click="$emit('open-login-modal')">Login </button>
 
+<button  v-if="isLoggedIn" class="mx-2" @click="logout">Logout </button>
 
-<button class="mx-2" @click="logout">Logout </button>
+<button v-else class="mx-2" @click="$emit('open-login-modal')">Login </button>
+
 </nav>
 </template>
  
 <script>
 import firebase from "../utilities/firebase"
 export default {
+    props : ["isLoggedIn"],
   data() {
       return {
           list:  [

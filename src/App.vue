@@ -1,6 +1,9 @@
 <template> 
-<!-- represent what you want it to do? from the oter component where you defined it-->
-<Appheader  v-on:open-login-modal="isLoginOpen = true " />  
+<!-- represent what you want it to do? from the oter component where you defined it
+
+isLoggedIn is a props value that was binded. So we passed a value from this app.vue data values which is "isLoggedIn" to the component, Appheader... now in our appHeader.vue file(actual component) we are usign the assigned values on the isLoggedIn props or playing with it
+-->
+<Appheader  :isLoggedIn = "isSignedIn" v-on:open-login-modal="isLoginOpen = true " />  
 
 <div class="w-full flex">
 <!-- <Roomates  /> -->

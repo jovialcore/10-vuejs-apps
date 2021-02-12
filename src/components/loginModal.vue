@@ -9,16 +9,17 @@
                <form class="p-2 my-2" @submit.prevent="submit">
                   <div class="mb-4">
                     <label class="text-xl"> Email or Username </label>
- 
                     <input
                     v-model="email"
-                     class="rounded shadow p-2 w-full text-black text-xl" type="text" placeholder="Enter email"/>
+                     class="rounded shadow p-2 w-full text-black text-xl" type="text" placeholder="Enter email"    ref="emailRef" />
                   </div>
                 <div class="my-4">
                     <label class="text-xl"> Password </label>
                     <input
                      v-model="password"
-                     class="rounded shadow p-2 w-full text-black text-xl" type="password" placeholder="Please enter password"/>
+                     class="rounded shadow p-2 w-full text-black text-xl" type="password" placeholder="Please enter password"
+                  
+                     />
                 </div>
                 <div class="my-4">
                     <button @click="loading" type="submit" class=" bg-white p-3 m-auto rounded shadow-md text-xl text-black"> 
@@ -39,7 +40,9 @@
 <script>
  import firebase from '../utilities/firebase'
 export default {
-
+mounted() {
+    this.$refs.emailRef.focus();
+},
 
     data() {
     return {

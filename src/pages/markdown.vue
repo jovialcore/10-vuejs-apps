@@ -4,7 +4,7 @@
     <section class="flex  m-auto w-10/12 h-screen"> 
       <article class="w-1/2 border"> 
 
-        <textarea class="w-full h-full" :value="text" @input="update"  > 
+        <textarea class="w-full h-full" :value="text" @input="update"  ref="markDownRef"> 
 
         
         </textarea>
@@ -24,28 +24,9 @@ import debounce  from '../utilities/mixins/debounce'
 
 export default {
 
-
-
-  //   created() {
-  //   console.log('created');
-  // },
-
-  //   mounted() {
-  //   console.log('mounted');
-  // },
-
-  // beforeMount() {
-  //   console.log('before mount ')
-
-  // },
-
-  // beforeCreate() {
-  //   console.log('before create');
-  // },
-
-  // beforeUnmount(){
-  //   console.log(' finally unmounted!!');
-  // },
+mounted() {
+  this.$refs.markDownRef.focus();
+},
 
   beforeUpdate(){
     console.log('before the component/template was tampered with or before any initial update');
