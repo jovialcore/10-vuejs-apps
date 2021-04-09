@@ -9,6 +9,8 @@ import Home from '../pages/Home';
 import Markdown from '../pages/markdown';
 
 import carousel from '../pages/carousel';
+
+import calculator from '../pages/calculator';
 //remember that routes is an object and the path  should be mentioned too
 
 const routeHistory = createWebHistory();
@@ -25,6 +27,8 @@ const routes = [
     {path: '/markdown', component:Markdown},
 
     {path: '/', component: Home},
+
+    {path: '/calculator', component: calculator }
 ]
 
 const router  = createRouter({

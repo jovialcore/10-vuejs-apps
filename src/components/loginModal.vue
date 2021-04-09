@@ -5,7 +5,10 @@
   <div class="absolute inset-0">
       <div class="flex h-full"> 
           <div class="z-30 m-auto text-white text-4xl p-3 bg-green-700 rounded shadow w-1/3">
-              <h1 class="text-xl text-center "> login </h1>
+              <h1 class="text-xl text-center "> login Form</h1>
+            <!-- login in with google component with its custom event emitter which will call the close function that already has another emit event-->
+        <gLogger @close-login-from-google="close"/>  
+
                <form class="p-2 my-2" @submit.prevent="submit">
                   <div class="mb-4">
                     <label class="text-xl"> Email or Username </label>
@@ -39,7 +42,9 @@
 
 <script>
  import firebase from '../utilities/firebase'
+ import gLogger from "../components/login/google"
 export default {
+    components: { gLogger },
 mounted() {
     this.$refs.emailRef.focus();
 },
@@ -72,10 +77,10 @@ mounted() {
                   console.log(e)
                 })
             },
-
+//this is will now call the "close-login" emit which will now be listened to by the     
             close() {
                 this.$emit("close-login")
-            }
+            },
         }
 
 }

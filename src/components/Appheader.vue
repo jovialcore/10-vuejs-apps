@@ -7,7 +7,7 @@
 
 
 <button  v-if="isLoggedIn" class="mx-2" @click="logout">Logout </button>
-
+<!-- once login button is clicked, listen and emit the event attached to it, this time, its "open-login-modal" -->
 <button v-else class="mx-2" @click="$emit('open-login-modal')">Login </button>
 
 </nav>
@@ -16,7 +16,9 @@
 <script>
 import firebase from "../utilities/firebase"
 export default {
-    props : ["isLoggedIn"],
+    //you can define the props type and enter your default boolean value
+    // props : {"isLoggedIn": {type: Boolean, required: true}},
+    props : {"isLoggedIn": {type: Boolean, required: true}},
   data() {
       return {
           list:  [
@@ -27,7 +29,9 @@ export default {
 
               {title:'markdown',to:'/markdown'},
 
-              {title: 'carousel', to: '/carousel'}
+              {title: 'carousel', to: '/carousel'},
+
+              {title: 'calculator', to:'/calculator'}
           ]
       }
   },

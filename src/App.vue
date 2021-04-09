@@ -3,7 +3,9 @@
 
 isLoggedIn is a props value that was binded. So we passed a value from this app.vue data values which is "isLoggedIn" to the component, Appheader... now in our appHeader.vue file(actual component) we are usign the assigned values on the isLoggedIn props or playing with it
 -->
-<Appheader  :isLoggedIn = "isSignedIn" v-on:open-login-modal="isLoginOpen = true " />  
+
+<!-- v-on: / @  is the event that will be listened to "open-login-modal" is clicked -->
+<Appheader  :isLoggedIn = "isSignedIn" @open-login-modal="isLoginOpen = true " />  
 
 <div class="w-full flex">
 <!-- <Roomates  /> -->
@@ -13,8 +15,9 @@ isLoggedIn is a props value that was binded. So we passed a value from this app.
 
 </div>
 <!-- this  compnent will show only when the condition set for this component is true...so if its not, it negates to false... -->
-
-<loginModal v-if="isLoginOpen" v-on:close-login="isLoginOpen = false" />
+<teleport to="body">
+<loginModal v-if="isLoginOpen" @close-login="isLoginOpen = false" />
+</teleport>
 
 <!-- <input  :[attributes]="add"> <button :value="add"> add </button> -->
 

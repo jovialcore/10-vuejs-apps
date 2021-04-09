@@ -46,6 +46,23 @@ virtual dom is the copy of the html contents into the memory o vuejsVdom is in m
 
 //how to pass values and variables/data in one component to another component
 
+//the emit event can be used to as an event method across components...e.g is when you are in a parent componet and want to hide or child components
+
+//learnt about the teleport aspects of vuejs
+
+//composition API is a vuejs feature that allows you to use apis with the mehtods,computed properties, data, etc in one...inside the setup method, you just define things as it is, you don't have to define data or method, etc..
+//and you use ref well in composition APIs ==reactivejavasript via vue is a must in composition api the verb "on'" so for example, "mounted" is changed to "onMounted" except there is no "beforeCreate" and "created"
+
+//so with computed properties you are exempted from the use of methods properties, data return tyep computed proeprties; your codebase looks like you're writing vanilla javascript, you get?????
+
+in the composition API, all lifecycle hooks are appended with 
+
+New Terms leanrt:
+Composition API, 
+setup method,
+Reactivity
+
+
  <template>
 
  
